@@ -1,0 +1,136 @@
+:root {
+    --primary-choco: #4b2c20;
+    --secondary-choco: #6b4423;
+    --gold: #ffd700;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    font-family: 'Great Vibes', cursive;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    perspective: 1000px;
+    z-index: 1; /* Ensures the container is in the background */
+}
+
+.choco-box {
+    width: 350px;
+    height: 300px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.5s;
+    z-index: 2; /* Ensure the box is above the hearts */
+}
+
+.box-base {
+    background: var(--primary-choco);
+    clip-path: path('M 0 100 Q 175 20 350 100 L 350 250 Q 175 300 0 250 Z');
+    height: 100%;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.box-lid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: bottom;
+    transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    cursor: pointer;
+}
+
+.box-lid.open {
+    transform: rotateX(180deg);
+}
+
+.chocolates {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.chocolate {
+    width: 60px;
+    height: 80px;
+    background: linear-gradient(45deg, var(--secondary-choco), #3d2216);
+    border-radius: 8px;
+    transform: rotate(-5deg);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: glow 2s infinite alternate;
+}
+
+.message {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    text-shadow: 0 0 10px var(--gold);
+    width: 100%;
+}
+
+.message span {
+    display: inline-block;
+    transform: translateY(100vh);
+    transition: transform 1s ease-out;
+}
+
+.message span.name-part {
+    display: inline-block !important;
+    white-space: nowrap;
+}
+
+.hearts-container {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    z-index: 3; /* Ensure hearts are on top of everything else */
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 5px var(--gold)); }
+    to { filter: drop-shadow(0 0 20px var(--gold)); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(45deg); }
+    50% { transform: translateY(-20px) rotate(45deg); }
+}
+
+.heart {
+    position: relative;
+    color: #ff4081;
+    animation: float 3s infinite ease-in-out;
+}
+
+.paper-piece {
+    position: absolute;
+    background: #fffbe6;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    transform: translateY(100vh);
+    opacity: 0;
+}
