@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chocolate Paradise for Shruti 🍫</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="choco-box">
+            <div class="box-base"></div>
+            <div class="box-lid" onclick="openBox()">
+                <div class="box-base" style="background: var(--secondary-choco);"></div>
+            </div>
+        </div>
+        <div class="chocolates" id="chocolates">
+            <div class="chocolate"></div>
+            <div class="chocolate" style="animation-delay: 0.2s"></div>
+            <div class="chocolate" style="animation-delay: 0.4s"></div>
+        </div>
+        <div class="message" id="message">
+            <span>H</span><span>a</span><span>p</span><span>p</span><span>y</span>
+            <span>C</span><span>h</span><span>o</span><span>c</span><span>o</span>
+            <span>l</span><span>a</span><span>t</span><span>e</span><span> </span>
+            <span>D</span><span>a</span><span>y</span><span>,</span><span> </span>
+            <span class="name-part">S</span><span class="name-part">h</span><span class="name-part">r</span>
+            <span class="name-part">u</span><span class="name-part">t</span><span class="name-part">i</span>
+            <span>!</span><span>🍫</span><span>💖</span>
+        </div>
+    </div>
+    <div class="hearts-container" id="hearts"></div>
+
+    <audio id="music" loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-chocolate-219.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
